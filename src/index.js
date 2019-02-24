@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 
-import GoeLoaction from '../src/basics/index';
+import GoeLoaction from '../src/geoLocation/index';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(<GoeLoaction />, document.getElementById('root'));
