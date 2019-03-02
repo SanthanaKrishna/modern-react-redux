@@ -23,7 +23,7 @@ const SeasonDisplay =(props)=>{
     const season= getSeason(props.latitude, props.longitude, new Date())
     const { text, iconName}= seasonConfig[season] // return {text, iconName} object
 
-    console.log('props', season);
+    console.log('season', season);
     return <div className={`season-display ${season}`}>
             <i className={`icon-left big ${iconName} icon`}/><br/>
             {text}<br/>

@@ -28,11 +28,11 @@ componentDidMount(){
     console.log('cmponent Did Mount')
     window.navigator.geolocation.getCurrentPosition(
         position=>{ this.setState({latitude: position.coords.latitude, longitude:position.coords.longitude})  
-            console.log(position);
+            console.log("geo location position",position);
         },
         error =>{
             this.setState({errorMessage: error});
-            console.log(error);
+            console.log("geo location error", error);
         } 
     );
 }
