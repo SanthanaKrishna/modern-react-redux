@@ -8,7 +8,7 @@ import SeasonDisplay from './SeasonDisplay';
 //      );
 //     return <div> Latitude: </div>
 // }
-class GeoLocation extends React.Component{
+class GeoLocation extends React.Component {
     // constructor(props){  // constructor is called any time when instance os created first 
     //     super(props);   // super is refernce to parent class
     //     this.state={
@@ -19,37 +19,38 @@ class GeoLocation extends React.Component{
     // }
     //Alertnative way of state declaration
     // constructor automatically create by babel no need to write constructor
-    state={
-        latitude: null, 
+    state = {
+        latitude: null,
         longitude: null,
-        errorMessage:''
+        errorMessage: ''
     }
-componentDidMount(){
-    console.log('cmponent Did Mount')
-    window.navigator.geolocation.getCurrentPosition(
-        position=>{ this.setState({latitude: position.coords.latitude, longitude:position.coords.longitude})  
-            console.log("geo location position",position);
-        },
-        error =>{
-            this.setState({errorMessage: error});
-            console.log("geo location error", error);
-        } 
-    );
-}
+    componentDidMount() {
+        console.log('cmponent Did Mount')
+        window.navigator.geolocation.getCurrentPosition(
+            position => {
+                this.setState({ latitude: position.coords.latitude, longitude: position.coords.longitude })
+                console.log("geo location position", position);
+            },
+            error => {
+                this.setState({ errorMessage: error });
+                console.log("geo location error", error);
+            }
+        );
+    }
 
-componentDidUpdate(){
-    console.log('component did update')
-}
-    render(){
-        if(this.state.errorMessage && !this.state.latitude && !this.state.latitude){
+    componentDidUpdate() {
+        console.log('component did update')
+    }
+    render() {
+        if (this.state.errorMessage && !this.state.latitude && !this.state.latitude) {
             return <div>Error:{this.state.errorMessage}</div>
         }
-        if(this.state.latitude || this.state.longitude && !this.setState.errorMessage){
+        if (this.state.latitude || this.state.longitude && !this.setState.errorMessage) {
             return <SeasonDisplay latitude={this.state.latitude}
-                                  longitude={this.state.longitude}
-                    />
+                longitude={this.state.longitude}
+            />
         }
         return <div>Loading....</div>
-        }
     }
+}
 export default GeoLocation;
